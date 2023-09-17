@@ -1,5 +1,5 @@
-body{
-    background-color: crimson;
+.body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #list{
@@ -17,6 +17,7 @@ body{
 }
 
 #footer {
+    color: azure;
     text-align: right;
     position: fixed;
     bottom: 0;
