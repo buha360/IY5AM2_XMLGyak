@@ -1,0 +1,24 @@
+body{
+    background-color: crimson;
+}
+
+#list{
+    font-size: 1.8em;
+    display: inline-flex;
+    list-style: none;
+    color: rgb(255, 255, 255);
+}
+
+#list li {
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    padding-inline: 45px;
+}
+
+#footer {
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0.5em;
+}
