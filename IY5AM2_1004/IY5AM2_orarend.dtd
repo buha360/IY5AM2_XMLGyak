@@ -1,0 +1,21 @@
+<!ELEMENT IY5AM2_orarend (orarend)>
+<!ATTLIST IY5AM2_orarend szak CDATA #REQUIRED>
+    
+<!ELEMENT orarend (ora+, orak+)>
+<!ATTLIST orarend xmls:xs CDATA #IMPLIED>
+<!ATTLIST orarend xs:noNamespaceSchemaLocation CDATA #IMPLIED>
+    
+<!ELEMENT ora (ido, tantargy, eloado_nev, terem)>
+<!ATTLIST ora id CDATA #REQUIRED>
+<!ATTLIST ora tipus (Eloadas|Gyakorlat) #REQUIRED>
+
+<!ELEMENT ido (kezdet, veg, nap)>
+<!ELEMENT kezdet (#PCDATA)>
+<!ELEMENT veg (#PCDATA)>
+<!ELEMENT nap (#PCDATA)>
+
+<!ELEMENT tantargy (#PCDATA)>
+<!ELEMENT eloado_nev (#PCDATA)>
+<!ELEMENT terem (#PCDATA)>
+
+<!ELEMENT orak (ora+)>

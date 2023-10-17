@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IY5AM2_orarend szak="Programtervező Informatikus">
+    <IY5AM2_orarend>
+    <orarend xmls:xs="https://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="IY5AM2_orarend.xsd"
+            <ora id="01" tipus="Eloadas">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <ora id="02" tipus="Eloadas">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <!-- + órák -->
+        </orak>
+        <orak>
+            <ora id="03" tipus="Eloadas">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <ora id="04" tipus="Eloadas">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <!-- + órák -->
+        </orak>
+        <orak>
+            <ora id="01" tipus="Gyakorlat">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <ora id="02" tipus="Gyakorlat">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <!-- + órák -->
+        </orak>
+        <orak>
+            <ora id="03" tipus="Gyakorlat">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <ora id="04" tipus="Gyakorlat">
+                <ido>
+                    <kezdet></kezdet>
+                    <veg></veg>
+                    <nap></nap>
+                </ido>
+                <tantargy></tantargy>
+                <eloado_nev></eloado_nev>
+                <terem></terem>
+            </ora>
+            <!-- + órák -->
+        </orak>
+    <IY5AM2_orarend>
+</orarend>
