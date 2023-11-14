@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Car_IY5AM2" type="CarType">
+        <xs:key name="transactionKey">
+            <xs:selector xpath=".//Transaction"/>
+            <xs:field xpath="@transaction_id"/>
+        </xs:key>
+
+        <xs:key name="driverKey">
+            <xs:selector xpath=".//Driver"/>
+            <xs:field xpath="@driver_id"/>
+        </xs:key>
+
+        <xs:keyref name="transactionRef" refer="transactionKey">
+            <xs:selector xpath=".//Cars"/>
+            <xs:field xpath="@transaction"/>
+        </xs:keyref>
+
+        <xs:keyref name="driverRef" refer="driverKey">
+            <xs:selector xpath=".//Cars"/>
+            <xs:field xpath="@driver"/>
+        </xs:keyref>
+    </xs:element>
+
+    <!-- CarType Complex Type -->
+    <xs:complexType name="CarType">
+        <xs:sequence>
+            <xs:element name="Transaction" type="TransactionType"/>
+            <xs:element name="Cars" type="CarsType"/>
+            <xs:element name="Driver" type="DriverType"/>
+            <xs:element name="Customer" type="CustomerType"/>
+            <xs:element name="Admin" type="AdminType"/>
+            <xs:element name="Approving" type="ApprovingType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- TransactionType Complex Type -->
+    <xs:complexType name="TransactionType">
+        <xs:sequence>
+            <xs:element name="transaction_name" type="xs:string"/>
+            <xs:element name="transaction_date" type="xs:date"/>
+            <xs:element name="transaction_data" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="transaction_id" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <!-- CarsType Complex Type -->
+    <xs:complexType name="CarsType">
+        <xs:sequence>
+            <xs:element name="car_modell" type="xs:string"/>
+            <xs:element name="rent_price" type="xs:decimal"/>
+            <xs:element name="car_number" type="xs:string"/>
+            <xs:element name="car_status" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="car_id" type="xs:integer" use="required"/>
+        <xs:attribute name="transaction" type="xs:integer" use="required"/>
+        <xs:attribute name="driver" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <!-- DriverType Complex Type -->
+    <xs:complexType name="DriverType">
+        <xs:sequence>
+            <xs:element name="phone_number" type="xs:string"/>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="address" type="AddressType"/>
+            <xs:element name="name" type="NameType"/>
+        </xs:sequence>
+        <xs:attribute name="driver_id" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <!-- CustomerType Complex Type -->
+    <xs:complexType name="CustomerType">
+        <xs:sequence>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="age" type="xs:integer"/>
+            <xs:element name="cust_email" type="xs:string"/>
+            <xs:element name="address" type="AddressType"/>
+            <xs:element name="name" type="NameType"/>
+        </xs:sequence>
+        <xs:attribute name="customer_id" type="xs:integer" use="required"/>
+        <xs:attribute name="transaction" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <!-- AdminType Complex Type -->
+    <xs:complexType name="AdminType">
+        <xs:sequence>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="age" type="xs:integer"/>
+            <xs:element name="admin_email" type="xs:string"/>
+            <xs:element name="address" type="AddressType"/>
+            <xs:element name="name" type="NameType"/>
+        </xs:sequence>
+        <xs:attribute name="admin_id" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <!-- ApprovingType Complex Type -->
+    <xs:complexType name="ApprovingType">
+        <xs:sequence>
+            <xs:element name="verification_date" type="xs:date"/>
+        </xs:sequence>
+        <xs:attribute name="approving_id" type="xs:integer" use="required"/>
+        <xs:attribute name="admin" type="xs:integer" use="required"/>
+        <xs:attribute name="transaction" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <!-- AddressType Complex Type -->
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="post_code" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="street" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- NameType Complex Type -->
+    <xs:complexType name="NameType">
+        <xs:sequence>
+            <xs:element name="first_name" type="xs:string"/>
+            <xs:element name="last_name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Car_IY5AM2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="IY5AM2XSD.xsd">
+
+    <Transaction transaction_id="1">
+        <transaction_name>Tesomnak</transaction_name>
+        <transaction_date>2023-11-14</transaction_date>
+        <transaction_data>Cash</transaction_data>
+    </Transaction>
+
+    <Cars car_id="1" transaction="1" driver="1">
+        <car_modell>Opel</car_modell>
+        <rent_price>200.0</rent_price>
+        <car_number>69</car_number>
+        <car_status>Available</car_status>
+    </Cars>
+
+    <Driver driver_id="1">
+        <phone_number>06501311010</phone_number>
+        <gender>Male</gender>
+        <address>
+            <post_code>3534</post_code>
+            <city>Miskolc</city>
+            <street>Árpád</street>
+        </address>
+        <name>
+            <first_name>Buha</first_name>
+            <last_name>Milán</last_name>
+        </name>
+    </Driver>
+
+    <Customer customer_id="1" transaction="1">
+        <gender>Female</gender>
+        <age>20</age>
+        <cust_email>barbara@gmail.com</cust_email>
+        <address>
+            <post_code>3535</post_code>
+            <city>Miskolc</city>
+            <street>Kuruc</street>
+        </address>
+        <name>
+            <first_name>Valaki</first_name>
+            <last_name>Barbara</last_name>
+        </name>
+    </Customer>
+
+    <Admin admin_id="1">
+        <gender>Male</gender>
+        <age>32</age>
+        <admin_email>admin@gmail.com</admin_email>
+        <address>
+            <post_code>3634</post_code>
+            <city>Valahol</city>
+            <street>Napfény</street>
+        </address>
+        <name>
+            <first_name>Kiss</first_name>
+            <last_name>János</last_name>
+        </name>
+    </Admin>
+
+    <Approving approving_id="1" admin="1" transaction="1">
+        <verification_date>2023-11-14</verification_date>
+    </Approving>
+
+</Car_IY5AM2>
