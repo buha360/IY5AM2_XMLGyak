@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <!-- Saját egyszerű típusok definiálása -->
-
-    <!-- Általános saját típusok-->
-
+    <!-- Saját típusok -->
     <xs:element name="phone_number" type="xs:string"/>
     <xs:element name="gender" type="xs:string"/>
     <xs:element name="post_code" type="xs:string"></xs:element>
@@ -20,6 +17,10 @@
     <xs:element name="rent_price" type="xs:decimal"/>
     <xs:element name="car_number" type="xs:string"/>
     <xs:element name="car_status" type="StatusType"/>
+
+    <xs:element name="age" type="xs:integer"/>
+    <xs:element name="cust_email" type="xs:string"/>
+    <xs:element name="admin_email" type="xs:string"/>
 
     <xs:element name="transactions" type="TransactionDataType"></xs:element>
 
@@ -60,8 +61,8 @@
     <!-- TransactionType Complex Type -->
     <xs:complexType name="TransactionType">
         <xs:sequence>
-            <xs:element name="transaction_name" type="xs:string"/>
-            <xs:element name="transaction_date" type="xs:date"/>
+            <xs:element ref="transaction_name"/>
+            <xs:element ref="transaction_date"/>
             <xs:element ref="transactions"/>
         </xs:sequence>
         <xs:attribute name="transaction_id" type="xs:integer" use="required"/>
@@ -77,10 +78,10 @@
     <!-- CarsType Complex Type -->
     <xs:complexType name="CarsType">
         <xs:sequence>
-            <xs:element name="car_modell" type="xs:string"/>
-            <xs:element name="rent_price" type="xs:decimal"/>
-            <xs:element name="car_number" type="xs:string"/>
-            <xs:element name="car_status" type="StatusType"/>
+            <xs:element ref="car_modell"/>
+            <xs:element ref="rent_price"/>
+            <xs:element ref="car_number"/>
+            <xs:element ref="car_status"/>
         </xs:sequence>
         <xs:attribute name="car_id" type="xs:integer" use="required"/>
         <xs:attribute name="transaction" type="xs:integer" use="required"/>
@@ -90,13 +91,13 @@
     <!-- DriverType Complex Type -->
     <xs:complexType name="DriverType">
         <xs:sequence>
-            <xs:element name="phone_number" type="xs:string"/>
-            <xs:element name="gender" type="xs:string"/>
-            <xs:element name="post_code" type="xs:string"></xs:element>
-            <xs:element name="city" type="xs:string"></xs:element>
-            <xs:element name="street" type="xs:string"></xs:element>
-            <xs:element name="first_name" type="xs:string"></xs:element>
-            <xs:element name="last_name" type="xs:string"></xs:element>
+            <xs:element ref="phone_number"/>
+            <xs:element ref="gender"/>
+            <xs:element ref="post_code"/>
+            <xs:element ref="city"/>
+            <xs:element ref="street"/>
+            <xs:element ref="first_name"/>
+            <xs:element ref="last_name"/>
         </xs:sequence>
         <xs:attribute name="driver_id" type="xs:integer" use="required"/>
     </xs:complexType>
@@ -104,14 +105,14 @@
     <!-- CustomerType Complex Type -->
     <xs:complexType name="CustomerType">
         <xs:sequence>
-            <xs:element name="gender" type="xs:string"/>
-            <xs:element name="age" type="xs:integer"/>
-            <xs:element name="cust_email" type="xs:string"/>
-            <xs:element name="post_code" type="xs:string"></xs:element>
-            <xs:element name="city" type="xs:string"></xs:element>
-            <xs:element name="street" type="xs:string"></xs:element>
-            <xs:element name="first_name" type="xs:string"></xs:element>
-            <xs:element name="last_name" type="xs:string"></xs:element>
+            <xs:element ref="gender"/>
+            <xs:element ref="age"/>
+            <xs:element ref="cust_email"/>
+            <xs:element ref="post_code"/>
+            <xs:element ref="city"/>
+            <xs:element ref="street"/>
+            <xs:element ref="first_name"/>
+            <xs:element ref="last_name"/>
         </xs:sequence>
         <xs:attribute name="customer_id" type="xs:integer" use="required"/>
         <xs:attribute name="transaction" type="xs:integer" use="required"/>
@@ -120,14 +121,14 @@
     <!-- AdminType Complex Type -->
     <xs:complexType name="AdminType">
         <xs:sequence>
-            <xs:element name="gender" type="xs:string"/>
-            <xs:element name="age" type="xs:integer"/>
-            <xs:element name="admin_email" type="xs:string"/>
-            <xs:element name="post_code" type="xs:string"></xs:element>
-            <xs:element name="city" type="xs:string"></xs:element>
-            <xs:element name="street" type="xs:string"></xs:element>
-            <xs:element name="first_name" type="xs:string"></xs:element>
-            <xs:element name="last_name" type="xs:string"></xs:element>
+            <xs:element ref="gender"/>
+            <xs:element ref="age"/>
+            <xs:element ref="admin_email"/>
+            <xs:element ref="post_code"/>
+            <xs:element ref="city"/>
+            <xs:element ref="street"/>
+            <xs:element ref="first_name"/>
+            <xs:element ref="last_name"/>
         </xs:sequence>
         <xs:attribute name="admin_id" type="xs:integer" use="required"/>
     </xs:complexType>
