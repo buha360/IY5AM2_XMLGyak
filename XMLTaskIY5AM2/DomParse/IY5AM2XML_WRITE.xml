@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Car_IY5AM2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="IY5AM2XSD.xsd">
+        
+    <Transaction transaction_id="1">
+                
+        <transaction_name>Tesómnak</transaction_name>
+                
+        <transaction_date>2023-11-14</transaction_date>
+                
+        <transactions>
+                        
+            <transaction_data>Cash</transaction_data>
+                    
+        </transactions>
+            
+    </Transaction>
+        
+    <Transaction transaction_id="2">
+                
+        <transaction_name>Üzleti</transaction_name>
+                
+        <transaction_date>2023-11-15</transaction_date>
+                
+        <transactions>
+                        
+            <transaction_data>Bank Transfer</transaction_data>
+                    
+        </transactions>
+            
+    </Transaction>
+        
+    <Transaction transaction_id="3">
+                
+        <transaction_name>Születésnapi Ajándék</transaction_name>
+                
+        <transaction_date>2023-11-16</transaction_date>
+                
+        <transactions>
+                        
+            <transaction_data>Credit Card</transaction_data>
+                    
+        </transactions>
+            
+    </Transaction>
+        
+    <Cars car_id="1" driver="1" transaction="1">
+                
+        <car_modell>Opel</car_modell>
+                
+        <rent_price>200.0</rent_price>
+                
+        <car_number>69</car_number>
+                
+        <car_status>Available</car_status>
+            
+    </Cars>
+        
+    <Cars car_id="3" driver="3" transaction="2">
+                
+        <car_modell>Toyota</car_modell>
+                
+        <rent_price>150.0</rent_price>
+                
+        <car_number>33</car_number>
+                
+        <car_status>Unavailable</car_status>
+            
+    </Cars>
+        
+    <Cars car_id="4" driver="2" transaction="3">
+                
+        <car_modell>BMW</car_modell>
+                
+        <rent_price>300.0</rent_price>
+                
+        <car_number>44</car_number>
+                
+        <car_status>Available</car_status>
+            
+    </Cars>
+        
+    <Driver driver_id="1">
+                
+        <phone_number>06501311010</phone_number>
+                
+        <gender>Male</gender>
+                
+        <post_code>3534</post_code>
+                
+        <city>Miskolc</city>
+                
+        <street>Árpád</street>
+                
+        <first_name>Buha</first_name>
+                
+        <last_name>Milán</last_name>
+            
+    </Driver>
+        
+    <Driver driver_id="2">
+                
+        <phone_number>06502223344</phone_number>
+                
+        <gender>Male</gender>
+                
+        <post_code>1122</post_code>
+                
+        <city>Debrecen</city>
+                
+        <street>Kossuth</street>
+                
+        <first_name>Szabó</first_name>
+                
+        <last_name>László</last_name>
+            
+    </Driver>
+        
+    <Driver driver_id="3">
+                
+        <phone_number>06505556677</phone_number>
+                
+        <gender>Female</gender>
+                
+        <post_code>2045</post_code>
+                
+        <city>Törökbálint</city>
+                
+        <street>Fő</street>
+                
+        <first_name>Nagy</first_name>
+                
+        <last_name>Anna</last_name>
+            
+    </Driver>
+        
+    <Customer customer_id="1" transaction="1">
+                
+        <gender>Female</gender>
+                
+        <age>20</age>
+                
+        <cust_email>barbara@gmail.com</cust_email>
+                
+        <post_code>3535</post_code>
+                
+        <city>Miskolc</city>
+                
+        <street>Kuruc</street>
+                
+        <first_name>Valaki</first_name>
+                
+        <last_name>Barbara</last_name>
+            
+    </Customer>
+        
+    <Customer customer_id="2" transaction="2">
+                
+        <gender>Male</gender>
+                
+        <age>30</age>
+                
+        <cust_email>istvan@gmail.com</cust_email>
+                
+        <post_code>6000</post_code>
+                
+        <city>Kecskemét</city>
+                
+        <street>Petőfi</street>
+                
+        <first_name>István</first_name>
+                
+        <last_name>Szabó</last_name>
+            
+    </Customer>
+        
+    <Customer customer_id="3" transaction="3">
+                
+        <gender>Female</gender>
+                
+        <age>25</age>
+                
+        <cust_email>eszter@gmail.com</cust_email>
+                
+        <post_code>6722</post_code>
+                
+        <city>Szeged</city>
+                
+        <street>József</street>
+                
+        <first_name>Eszter</first_name>
+                
+        <last_name>Kovács</last_name>
+            
+    </Customer>
+        
+    <Admin admin_id="1">
+                
+        <gender>Male</gender>
+                
+        <age>32</age>
+                
+        <admin_email>admin@gmail.com</admin_email>
+                
+        <post_code>3634</post_code>
+                
+        <city>Valahol</city>
+                
+        <street>Napfény</street>
+                
+        <first_name>Kiss</first_name>
+                
+        <last_name>János</last_name>
+            
+    </Admin>
+        
+    <Admin admin_id="2">
+                
+        <gender>Female</gender>
+                
+        <age>28</age>
+                
+        <admin_email>admin2@gmail.com</admin_email>
+                
+        <post_code>7632</post_code>
+                
+        <city>Pécs</city>
+                
+        <street>Hunyadi</street>
+                
+        <first_name>Tóth</first_name>
+                
+        <last_name>Krisztina</last_name>
+            
+    </Admin>
+        
+    <Admin admin_id="3">
+                
+        <gender>Male</gender>
+                
+        <age>40</age>
+                
+        <admin_email>admin3@gmail.com</admin_email>
+                
+        <post_code>1012</post_code>
+                
+        <city>Budapest</city>
+                
+        <street>Vár</street>
+                
+        <first_name>Varga</first_name>
+                
+        <last_name>Mihály</last_name>
+            
+    </Admin>
+        
+    <Approving admin="1" approving_id="1" transaction="1">
+                
+        <verification_date>2023-11-14</verification_date>
+            
+    </Approving>
+        
+    <Approving admin="2" approving_id="2" transaction="2">
+                
+        <verification_date>2023-11-15</verification_date>
+            
+    </Approving>
+        
+    <Approving admin="3" approving_id="3" transaction="3">
+                
+        <verification_date>2023-11-16</verification_date>
+            
+    </Approving>
+    
+</Car_IY5AM2>
