@@ -1,57 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="Car_IY5AM2" type="CarType">
-        <xs:key name="transactionKey">
-            <xs:selector xpath=".//Transaction"/>
-            <xs:field xpath="@transaction_id"/>
-        </xs:key>
+    <!-- Sajat tipusok -->
+    <xs:element name="phone_number" type="xs:string"/>
+    <xs:element name="gender" type="xs:string"/>
+    <xs:element name="post_code" type="xs:string"></xs:element>
+    <xs:element name="city" type="xs:string"></xs:element>
+    <xs:element name="street" type="xs:string"></xs:element>
+    <xs:element name="first_name" type="xs:string"></xs:element>
+    <xs:element name="last_name" type="xs:string"></xs:element>
 
-        <xs:key name="driverKey">
-            <xs:selector xpath=".//Driver"/>
-            <xs:field xpath="@driver_id"/>
-        </xs:key>
+    <xs:element name="transaction_name" type="xs:string"/>
+    <xs:element name="transaction_date" type="xs:date"/>
 
-        <xs:keyref name="transactionRef" refer="transactionKey">
-            <xs:selector xpath=".//Cars"/>
-            <xs:field xpath="@transaction"/>
-        </xs:keyref>
+    <xs:element name="car_modell" type="xs:string"/>
+    <xs:element name="rent_price" type="xs:decimal"/>
+    <xs:element name="car_number" type="xs:string"/>
+    <xs:element name="car_status" type="StatusType"/>
 
-        <xs:keyref name="driverRef" refer="driverKey">
-            <xs:selector xpath=".//Cars"/>
-            <xs:field xpath="@driver"/>
-        </xs:keyref>
-    </xs:element>
+    <xs:element name="age" type="xs:integer"/>
+    <xs:element name="cust_email" type="xs:string"/>
+    <xs:element name="admin_email" type="xs:string"/>
 
-    <!-- CarType Complex Type -->
+    <xs:element name="transactions" type="TransactionDataType"></xs:element>
+
+    <!-- TransactionType Simple Type -->
+    <xs:simpleType name="TransactionDataAttributeType">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- GenderType Simple Type -->
+    <xs:simpleType name="GenderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Male"/>
+            <xs:enumeration value="Female"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- StatusType Simple Type -->
+    <xs:simpleType name="StatusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Available"/>
+            <xs:enumeration value="Unavailable"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Root Complex Type -->
     <xs:complexType name="CarType">
         <xs:sequence>
-            <xs:element name="Transaction" type="TransactionType"/>
-            <xs:element name="Cars" type="CarsType"/>
-            <xs:element name="Driver" type="DriverType"/>
-            <xs:element name="Customer" type="CustomerType"/>
-            <xs:element name="Admin" type="AdminType"/>
-            <xs:element name="Approving" type="ApprovingType"/>
+            <xs:element name="Transaction" type="TransactionType" minOccurs="3" maxOccurs="unbounded"/>
+            <xs:element name="Cars" type="CarsType" minOccurs="3" maxOccurs="unbounded"/>
+            <xs:element name="Driver" type="DriverType" minOccurs="3" maxOccurs="unbounded"/>
+            <xs:element name="Customer" type="CustomerType" minOccurs="3" maxOccurs="unbounded"/>
+            <xs:element name="Admin" type="AdminType" minOccurs="3" maxOccurs="unbounded"/>
+            <xs:element name="Approving" type="ApprovingType" minOccurs="3" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- TransactionType Complex Type -->
     <xs:complexType name="TransactionType">
         <xs:sequence>
-            <xs:element name="transaction_name" type="xs:string"/>
-            <xs:element name="transaction_date" type="xs:date"/>
-            <xs:element name="transaction_data" type="xs:string"/>
+            <xs:element ref="transaction_name"/>
+            <xs:element ref="transaction_date"/>
+            <xs:element ref="transactions"/>
         </xs:sequence>
         <xs:attribute name="transaction_id" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="TransactionDataType">
+        <xs:sequence>
+            <xs:element name="transaction_data" type="xs:string" minOccurs="1" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="transaction_data" type="TransactionDataAttributeType"/>
     </xs:complexType>
 
     <!-- CarsType Complex Type -->
     <xs:complexType name="CarsType">
         <xs:sequence>
-            <xs:element name="car_modell" type="xs:string"/>
-            <xs:element name="rent_price" type="xs:decimal"/>
-            <xs:element name="car_number" type="xs:string"/>
-            <xs:element name="car_status" type="xs:string"/>
+            <xs:element ref="car_modell"/>
+            <xs:element ref="rent_price"/>
+            <xs:element ref="car_number"/>
+            <xs:element ref="car_status"/>
         </xs:sequence>
         <xs:attribute name="car_id" type="xs:integer" use="required"/>
         <xs:attribute name="transaction" type="xs:integer" use="required"/>
@@ -61,10 +91,13 @@
     <!-- DriverType Complex Type -->
     <xs:complexType name="DriverType">
         <xs:sequence>
-            <xs:element name="phone_number" type="xs:string"/>
-            <xs:element name="gender" type="xs:string"/>
-            <xs:element name="address" type="AddressType"/>
-            <xs:element name="name" type="NameType"/>
+            <xs:element ref="phone_number"/>
+            <xs:element ref="gender"/>
+            <xs:element ref="post_code"/>
+            <xs:element ref="city"/>
+            <xs:element ref="street"/>
+            <xs:element ref="first_name"/>
+            <xs:element ref="last_name"/>
         </xs:sequence>
         <xs:attribute name="driver_id" type="xs:integer" use="required"/>
     </xs:complexType>
@@ -72,11 +105,14 @@
     <!-- CustomerType Complex Type -->
     <xs:complexType name="CustomerType">
         <xs:sequence>
-            <xs:element name="gender" type="xs:string"/>
-            <xs:element name="age" type="xs:integer"/>
-            <xs:element name="cust_email" type="xs:string"/>
-            <xs:element name="address" type="AddressType"/>
-            <xs:element name="name" type="NameType"/>
+            <xs:element ref="gender"/>
+            <xs:element ref="age"/>
+            <xs:element ref="cust_email"/>
+            <xs:element ref="post_code"/>
+            <xs:element ref="city"/>
+            <xs:element ref="street"/>
+            <xs:element ref="first_name"/>
+            <xs:element ref="last_name"/>
         </xs:sequence>
         <xs:attribute name="customer_id" type="xs:integer" use="required"/>
         <xs:attribute name="transaction" type="xs:integer" use="required"/>
@@ -85,11 +121,14 @@
     <!-- AdminType Complex Type -->
     <xs:complexType name="AdminType">
         <xs:sequence>
-            <xs:element name="gender" type="xs:string"/>
-            <xs:element name="age" type="xs:integer"/>
-            <xs:element name="admin_email" type="xs:string"/>
-            <xs:element name="address" type="AddressType"/>
-            <xs:element name="name" type="NameType"/>
+            <xs:element ref="gender"/>
+            <xs:element ref="age"/>
+            <xs:element ref="admin_email"/>
+            <xs:element ref="post_code"/>
+            <xs:element ref="city"/>
+            <xs:element ref="street"/>
+            <xs:element ref="first_name"/>
+            <xs:element ref="last_name"/>
         </xs:sequence>
         <xs:attribute name="admin_id" type="xs:integer" use="required"/>
     </xs:complexType>
@@ -104,21 +143,69 @@
         <xs:attribute name="transaction" type="xs:integer" use="required"/>
     </xs:complexType>
 
-    <!-- AddressType Complex Type -->
-    <xs:complexType name="AddressType">
-        <xs:sequence>
-            <xs:element name="post_code" type="xs:string"/>
-            <xs:element name="city" type="xs:string"/>
-            <xs:element name="street" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
+    <xs:element name="Car_IY5AM2" type="CarType">
 
-    <!-- NameType Complex Type -->
-    <xs:complexType name="NameType">
-        <xs:sequence>
-            <xs:element name="first_name" type="xs:string"/>
-            <xs:element name="last_name" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
+        <xs:key name="transactionKey">
+            <xs:selector xpath="Transaction"/>
+            <xs:field xpath="@transaction_id"/>
+        </xs:key>
+
+        <xs:key name="driverKey">
+            <xs:selector xpath="Driver"/>
+            <xs:field xpath="@driver_id"/>
+        </xs:key>
+
+        <xs:key name="carsKey">
+            <xs:selector xpath="Cars"/>
+            <xs:field xpath="@car_id"/>
+        </xs:key>
+
+        <xs:key name="customerKey">
+            <xs:selector xpath="Customer"/>
+            <xs:field xpath="@customer_id"/>
+        </xs:key>
+
+        <xs:key name="adminKey">
+            <xs:selector xpath="Admin"/>
+            <xs:field xpath="@admin_id"/>
+        </xs:key>
+
+        <xs:key name="approvingKey">
+            <xs:selector xpath="Approving"/>
+            <xs:field xpath="@approving_id"/>
+        </xs:key>
+
+        <xs:keyref name="carTransaction" refer="transactionKey">
+            <xs:selector xpath="Cars"/>
+            <xs:field xpath="@transaction"/>
+        </xs:keyref>
+
+        <xs:keyref name="carDriver" refer="driverKey">
+            <xs:selector xpath="Cars"/>
+            <xs:field xpath="@transaction"/>
+        </xs:keyref>
+
+        <xs:keyref name="customerTransaction" refer="transactionKey">
+            <xs:selector xpath="Customer"/>
+            <xs:field xpath="@transaction"/>
+        </xs:keyref>
+
+        <xs:keyref name="approvingAdmin" refer="adminKey">
+            <xs:selector xpath="Approving"/>
+            <xs:field xpath="@admin"/>
+        </xs:keyref>
+
+        <xs:keyref name="approvingTransaction" refer="transactionKey">
+            <xs:selector xpath="Approving"/>
+            <xs:field xpath="@transaction"/>
+        </xs:keyref>
+
+        <!-- 1:1 -->
+        <xs:unique name="DriverCarConnect">
+            <xs:selector xpath="carKey"/>
+            <xs:field xpath="@driver"/>
+        </xs:unique>
+
+    </xs:element>
 
 </xs:schema>
