@@ -9,7 +9,7 @@ import org.xml.sax.SAXException;
 public class DOMQueryIY5AM2 {
 
     public static void main(String[] argv) throws SAXException, IOException, ParserConfigurationException {
-        File xmlFile = new File("M:\\Egyetem\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML.xml");
+        File xmlFile = new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML.xml");
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = factory.newDocumentBuilder();
@@ -61,7 +61,6 @@ public class DOMQueryIY5AM2 {
         }
         outputBuilder.append("</MaleDrivers>\n");
 
-
         // Lekérdezés a 25 évnél fiatalabb ügyfelekre
         NodeList customerList = doc.getElementsByTagName("Customer");
         outputBuilder.append("\n<YoungCustomers>\n");
@@ -84,7 +83,7 @@ public class DOMQueryIY5AM2 {
         }
         outputBuilder.append("</YoungCustomers>\n");
 
-// Lekérdezés az adminisztrátorokra Budapest városából
+        // Lekérdezés az adminisztrátorokra Budapest városából
         NodeList adminList = doc.getElementsByTagName("Admin");
         outputBuilder.append("\n<BudapestAdmins>\n");
         for (int i = 0; i < adminList.getLength(); i++) {

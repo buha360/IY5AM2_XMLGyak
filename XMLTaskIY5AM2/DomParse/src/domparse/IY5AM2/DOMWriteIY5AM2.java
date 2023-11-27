@@ -13,7 +13,7 @@ public class DOMWriteIY5AM2 {
 
     public static void main(String[] args) {
         try {
-            File inputFile = new File("M:\\Egyetem\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML.xml");
+            File inputFile = new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
@@ -40,7 +40,7 @@ public class DOMWriteIY5AM2 {
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File("M:\\Egyetem\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML_WRITE.xml"));
+        StreamResult result = new StreamResult(new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML_WRITE.xml"));
         transformer.transform(source, result);
     }
 }

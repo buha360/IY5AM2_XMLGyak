@@ -15,7 +15,7 @@ public class DOMModifyIY5AM2 {
 
     public static void main(String[] argv) {
         try {
-            File inputFile = new File("M:\\Egyetem\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML.xml");
+            File inputFile = new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML.xml");
 
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
