@@ -105,6 +105,91 @@ public class DOMQueryIY5AM2 {
         }
         outputBuilder.append("</BudapestAdmins>\n");
 
+        // Lekérdezés azokra a tranzakciókra, ahol a bérlés ára meghaladja az átlagos bérlési díjat
+        NodeList transactionList = doc.getElementsByTagName("Transaction");
+        double totalRent = 0;
+        int transactionCount = 0;
+
+        // Számítsuk ki az átlagos bérlési díjat
+        for (int i = 0; i < transactionList.getLength(); i++) {
+            Node transactionNode = transactionList.item(i);
+            if (transactionNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element transactionElement = (Element) transactionNode;
+                String transactionId = transactionElement.getAttribute("transaction_id");
+
+                // Az autók adatainak keresése a tranzakció azonosító alapján
+                for (int j = 0; j < carsList.getLength(); j++) {
+                    Node carNode = carsList.item(j);
+                    if (carNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element carElement = (Element) carNode;
+                        if (carElement.getAttribute("transaction").equals(transactionId)) {
+                            double rentPrice = Double.parseDouble(carElement.getElementsByTagName("rent_price").item(0).getTextContent());
+                            totalRent += rentPrice;
+                            transactionCount++;
+                        }
+                    }
+                }
+            }
+        }
+
+        double averageRent = totalRent / transactionCount;
+
+        outputBuilder.append("\n<TransactionsAboveAverageRent>\n");
+        for (int i = 0; i < transactionList.getLength(); i++) {
+            Node transactionNode = transactionList.item(i);
+            if (transactionNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element transactionElement = (Element) transactionNode;
+                String transactionId = transactionElement.getAttribute("transaction_id");
+
+                for (int j = 0; j < carsList.getLength(); j++) {
+                    Node carNode = carsList.item(j);
+                    if (carNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element carElement = (Element) carNode;
+                        if (carElement.getAttribute("transaction").equals(transactionId)) {
+                            double rentPrice = Double.parseDouble(carElement.getElementsByTagName("rent_price").item(0).getTextContent());
+                            if (rentPrice > averageRent) {
+                                outputBuilder.append(String.format("  <Transaction transaction_id=\"%s\">\n", transactionId));
+                                outputBuilder.append(String.format("    <RentPrice>%s</RentPrice>\n", rentPrice));
+                                outputBuilder.append("  </Transaction>\n");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        outputBuilder.append("</TransactionsAboveAverageRent>\n");
+
+        // Lekérdezés azon autókra, amelyeket 'Female' nemű ügyfelek béreltek, és még rendelkezésre állnak
+        outputBuilder.append("\n<AvailableCarsRentedByFemaleCustomers>\n");
+
+        for (int i = 0; i < carsList.getLength(); i++) {
+            Node carNode = carsList.item(i);
+            if (carNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element carElement = (Element) carNode;
+                String carStatus = carElement.getElementsByTagName("car_status").item(0).getTextContent();
+                String transactionId = carElement.getAttribute("transaction");
+
+                if (carStatus.equals("Available")) {
+                    for (int j = 0; j < customerList.getLength(); j++) {
+                        Node customerNode = customerList.item(j);
+                        if (customerNode.getNodeType() == Node.ELEMENT_NODE) {
+                            Element customerElement = (Element) customerNode;
+                            if (customerElement.getAttribute("transaction").equals(transactionId)) {
+                                String gender = customerElement.getElementsByTagName("gender").item(0).getTextContent();
+                                if (gender.equals("Female")) {
+                                    String carModel = carElement.getElementsByTagName("car_modell").item(0).getTextContent();
+                                    outputBuilder.append(String.format("  <Car model=\"%s\" transaction_id=\"%s\">\n", carModel, transactionId));
+                                    outputBuilder.append(String.format("    <Status>%s</Status>\n", carStatus));
+                                    outputBuilder.append("  </Car>\n");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        outputBuilder.append("</AvailableCarsRentedByFemaleCustomers>\n");
+
         System.out.println(outputBuilder);
     }
 }
