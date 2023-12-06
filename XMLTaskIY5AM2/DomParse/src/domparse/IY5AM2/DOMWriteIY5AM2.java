@@ -59,7 +59,8 @@ public class DOMWriteIY5AM2 {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            StreamResult fileResult = new StreamResult(new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML_WRITE.xml"));
+            // XML output file megadása
+            StreamResult fileResult = new StreamResult(new File("C:\\Users\\Sziszi\\Desktop\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML_WRITE.xml"));
             transformer.transform(source, fileResult);
 
             System.out.println("The content has been written to the output file successfully.");
@@ -68,7 +69,7 @@ public class DOMWriteIY5AM2 {
         }
     }
 
-    // Segédfüggvények az elemek hozzáadásához
+    // Segédfüggvény az elemek hozzáadásához
     private static void addTransaction(Document doc, Element root, String id, String name, String date, String data) {
         Element transaction = doc.createElement("Transaction");
         transaction.setAttribute("transaction_id", id);
@@ -90,6 +91,7 @@ public class DOMWriteIY5AM2 {
         transactions.appendChild(transactionData);
     }
 
+    // Segédfüggvény az elemek hozzáadásához
     private static void addCar(Document doc, Element root, String carId, String transaction, String driver, String model, String price, String number, String status) {
         Element car = doc.createElement("Cars");
         car.setAttribute("car_id", carId);
@@ -114,6 +116,7 @@ public class DOMWriteIY5AM2 {
         car.appendChild(carStatus);
     }
 
+    // Segédfüggvény az elemek hozzáadásához
     private static void addDriver(Document doc, Element root, String driverId, String phoneNumber, String gender, String postCode, String city, String street, String firstName, String lastName) {
         Element driver = doc.createElement("Driver");
         driver.setAttribute("driver_id", driverId);
@@ -148,6 +151,7 @@ public class DOMWriteIY5AM2 {
         driver.appendChild(lastNameElement);
     }
 
+    // Segédfüggvény az elemek hozzáadásához
     private static void addCustomer(Document doc, Element root, String customerId, String transaction, String gender, String age, String email, String postCode, String city, String street, String firstName, String lastName) {
         Element customer = doc.createElement("Customer");
         customer.setAttribute("customer_id", customerId);
@@ -187,6 +191,7 @@ public class DOMWriteIY5AM2 {
         customer.appendChild(lastNameElement);
     }
 
+    // Segédfüggvény az elemek hozzáadásához
     private static void addAdmin(Document doc, Element root, String adminId, String gender, String age, String email, String postCode, String city, String street, String firstName, String lastName) {
         Element admin = doc.createElement("Admin");
         admin.setAttribute("admin_id", adminId);
@@ -225,6 +230,7 @@ public class DOMWriteIY5AM2 {
         admin.appendChild(lastNameElement);
     }
 
+    // Segédfüggvény az elemek hozzáadásához
     private static void addApproving(Document doc, Element root, String approvingId, String adminId, String transactionId, String date) {
         Element approving = doc.createElement("Approving");
         approving.setAttribute("approving_id", approvingId);

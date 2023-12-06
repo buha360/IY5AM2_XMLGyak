@@ -13,12 +13,13 @@ public class DOMReadIY5AM2 {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML.xml"));
+            Document document = builder.parse(new File("C:\\Users\\Sziszi\\Desktop\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML.xml"));
 
             document.getDocumentElement().normalize();
             System.out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             System.out.println("<Car_IY5AM2 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"IY5AM2XSD.xsd\">\n");
 
+            // Elemeket beolvasó metódusok
             readTransactions(document);
             readCars(document);
             readDrivers(document);
@@ -192,7 +193,7 @@ public class DOMReadIY5AM2 {
         }
     }
 
-    // Elem kiirato metodus
+    // Elem kiírató metódus
     private static void printElement(String elementName, String content) {
         System.out.println("        <" + elementName + ">" + content + "</" + elementName + ">");
     }
