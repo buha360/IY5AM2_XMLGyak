@@ -59,12 +59,15 @@ public class DOMWriteIY5AM2 {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            // XML output file megadása
-            // consolera is ki kell írni
-            StreamResult fileResult = new StreamResult(new File("C:\\Users\\Sziszi\\Desktop\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML_WRITE1.xml"));
+            // XML fájl mentése
+            StreamResult fileResult = new StreamResult(new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML_WRITE.xml"));
             transformer.transform(source, fileResult);
 
-            System.out.println("The content has been written to the output file successfully.");
+            // XML konzolra írása
+            StreamResult consoleResult = new StreamResult(System.out);
+            transformer.transform(source, consoleResult);
+
+            System.out.println("The content has been written to the output file and the console successfully.");
         } catch (ParserConfigurationException | TransformerException e) {
             System.out.println("Error: " + e);
         }

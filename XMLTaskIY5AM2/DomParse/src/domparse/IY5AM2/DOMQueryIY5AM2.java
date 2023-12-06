@@ -9,7 +9,7 @@ import org.xml.sax.SAXException;
 public class DOMQueryIY5AM2 {
 
     public static void main(String[] argv) throws SAXException, IOException, ParserConfigurationException {
-        File xmlFile = new File("C:\\Users\\Sziszi\\Desktop\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML.xml");
+        File xmlFile = new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML.xml");
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = factory.newDocumentBuilder();

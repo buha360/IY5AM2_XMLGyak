@@ -13,7 +13,7 @@ public class DOMReadIY5AM2 {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(new File("C:\\Users\\Sziszi\\Desktop\\IY5AM2_XMLGyak\\XMLTaskIY5AM2\\IY5AM2XML.xml"));
+            Document document = builder.parse(new File("C:\\Users\\buha3\\Desktop\\XMLTaskIY5AM2\\IY5AM2XML.xml"));
 
             document.getDocumentElement().normalize();
             System.out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
@@ -53,9 +53,9 @@ public class DOMReadIY5AM2 {
                 System.out.println("        <Transactions>");
                 for (int i = 0; i < transactionDataList.getLength(); i++) {
                     String transactionData = transactionDataList.item(i).getTextContent();
-                    printElement("transaction_data", transactionData);
+                    System.out.println("            <transaction_data>" + transactionData + "</transaction_data>");
                 }
-                System.out.println("        <Transactions>");
+                System.out.println("        </Transactions>");
 
                 System.out.println("    </Transaction>");
             }
