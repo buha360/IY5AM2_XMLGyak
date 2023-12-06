@@ -41,7 +41,7 @@ public class DOMModifyIY5AM2 {
             StreamResult consoleResult = new StreamResult(System.out);
             transformer.transform(source, consoleResult);
         } catch (Exception e) {
-            System.out.println("Valami baj van: " + e);
+            System.out.println("Error: " + e);
         }
     }
 

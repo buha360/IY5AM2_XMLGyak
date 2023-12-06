@@ -29,7 +29,7 @@ public class DOMReadIY5AM2 {
 
             System.out.println("\n</Car_IY5AM2>");
         } catch (ParserConfigurationException | IOException | SAXException e) {
-            System.out.println("Valami baj van: " + e);
+            System.out.println("Error: " + e);
         }
     }
 
@@ -50,10 +50,12 @@ public class DOMReadIY5AM2 {
 
                 // Transaction Data elemek kiolvasása
                 NodeList transactionDataList = eElement.getElementsByTagName("transaction_data");
+                System.out.println("        <Transactions>");
                 for (int i = 0; i < transactionDataList.getLength(); i++) {
                     String transactionData = transactionDataList.item(i).getTextContent();
                     printElement("transaction_data", transactionData);
                 }
+                System.out.println("        <Transactions>");
 
                 System.out.println("    </Transaction>");
             }
